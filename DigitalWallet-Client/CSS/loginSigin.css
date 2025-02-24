@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 10px;
+}
+
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.halfcircle{
+    position: absolute;
+    width: 50vw; 
+    height: 100vh; 
+    background-color: blue; 
+    border-top-right-radius: 40%;  
+    border-bottom-right-radius: 40%; 
+    left: 0;
+    top: 0;
+}
+
+.form{
+    position: absolute;
+    top: 50%;
+    display: flex;
+    height: 25rem;
+    width: 20rem;
+    flex-direction: column;
+    border: 1px solid #333;
+    border-radius: 1em;
+    padding: 3rem;
+}
+
+.form input{
+    margin: 1rem 0;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+.form button{
+    background-color: aqua;
+    border: none;
+    border-radius: 1rem;
+
+}
