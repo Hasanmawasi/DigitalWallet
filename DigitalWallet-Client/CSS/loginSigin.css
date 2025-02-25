@@ -3,6 +3,7 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 97vh;
@@ -12,6 +13,16 @@ body {
 a{
     text-decoration: none;
 } 
+
+.hidden{
+    display: none !important;
+}
+
+.header{
+    color: white ;
+    font-size: 3em;
+    font-weight: bolder;
+}
 
 .login-box {
     display: flex;
@@ -27,7 +38,7 @@ a{
 
 .login-header { 
     text-align: center;
-    margin: 2rem 0 4rem 0;
+    margin: 2rem 0 3rem 0;
 }
 .login-header header{
     color:white;
