@@ -1,55 +1,27 @@
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 html{
     font-size: 10px;
 }
 
-body{
-    position: relative;
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-.halfcircle{
-    position: absolute;
-    width: 50vw; 
-    height: 100vh; 
-    background-color: blue; 
-    border-top-right-radius: 40%;  
-    border-bottom-right-radius: 40%; 
-    left: 0;
-    top: 0;
+    height: 100vh;
+    background-color: grey;
 }
 
-.form{
-    position: absolute;
-    top: 50%;
+.login-box {
     display: flex;
-    height: 25rem;
-    width: 20rem;
+    justify-content: center;
     flex-direction: column;
-    border: 1px solid #333;
-    border-radius: 1em;
+    width: 44rem;
+    height: 48rem;
     padding: 3rem;
-}
-
-.form input{
-    margin: 1rem 0;
-    border: none;
-    border-bottom: 1px solid black;
-}
-
-.form input:focus{
-    outline: none;
-}
-
-.form button{
-    background-color: aqua;
-    border: none;
-    border-radius: 1rem;
-
 }
