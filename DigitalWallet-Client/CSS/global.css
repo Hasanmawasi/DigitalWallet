@@ -76,9 +76,12 @@ nav ul {
 
 .small-screen-list {
   display: none;
+  position: absolute;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
+  background-color: var(--background-color);
   z-index: 100;
 }
 
@@ -99,6 +102,24 @@ nav ul {
   display: none !important;
 }
 
+
+/* footer */
+footer{
+    font-size: 15px;
+    padding: 5px;
+    margin-bottom: 1rem;
+}
+
+footer i {
+    font-size: 20px;
+}
+.footer-line{
+    width: 90%;
+    height: 2px;
+    background-color: var(--background-color);
+    margin: 1rem auto;
+}
+/* end of footer */
 @media (min-width: 0px) and (max-width: 700px) {
   .list {
     display: none;
