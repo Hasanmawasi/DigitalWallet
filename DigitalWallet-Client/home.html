@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="CSS/components.css">
     <link rel="stylesheet" href="CSS/global.css" />
     <link rel="stylesheet" href="CSS/home.css" />
     <link
@@ -15,6 +16,7 @@
     <title>Home</title>
   </head>
   <body>
+    <header>
     <div class="navbar">
       <nav class="">
         <div>
@@ -45,6 +47,30 @@
         </ul>
       </div>
     </div>
+</header>
+    <div class="flex-col"> 
+    <div class="p-1 flex accounts g-1">
+        <h3>Choose Wallet: </3>
+        <select name="wollet"  id="">
+            <option value="">wallet1</option>
+            <option value="">wallet2</option>
+        </select>
+    </div>
+    
+    <section class="card ballance-card ">
+        <div class="wallet-icon flex g-1"> 
+            <i class="fa-solid fa-wallet"></i>
+            <h3>Digital Wallet</h3>
+        </div>
+        <div class="flex justify-evenly p-1 flex-wrap mt-1">
+        <h3>Ballance : </h3>
+        <P class="amount">100$</P>
+    </div>
+    </section>
+    <section>
+
+    </section>
+   </div>
     <script src="JS/home.js"></script>
   </body>
 </html>
