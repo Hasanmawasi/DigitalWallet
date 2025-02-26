@@ -1,144 +1,147 @@
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 body {
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 97vh;
-    background: linear-gradient(45deg, white,rgba(97, 43, 224, 0.806) );
+  font-family: "Poppins", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+  background: linear-gradient(45deg, white, rgba(97, 43, 224, 0.806));
 }
 
-a{
-    text-decoration: none;
-} 
-
-.hidden{
-    display: none !important;
-    
+a {
+  text-decoration: none;
 }
 
-.header{
-    color: white ;
-    font-size: 3em;
-    font-weight: bolder;
-     animation: slideDown 2s ease-in;
+.hidden {
+  display: none !important;
+}
+
+.header {
+  color: white;
+  font-size: 3em;
+  font-weight: bolder;
+  animation: slideDown 2s ease-in;
 }
 
 .login-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 20rem;
-    height: 23rem;
-    padding: 1rem;
-    border: 1px solid #333;
-    border-radius: 20px;
-    background-color:rgba(97, 43, 224, 0.806);
-    animation: slideRight 2s ease-in ;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20rem;
+  height: 23rem;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 20px;
+  background-color: rgba(97, 43, 224, 0.806);
+  animation: slideRight 2s ease-in;
 }
 
-.login-header { 
-    text-align: center;
-    margin: 2rem 0 3rem 0;
+.login-header {
+  text-align: center;
+  margin: 2rem 0 3rem 0;
 }
-.login-header header{
-    color:white;
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.input-box .input-field{
-    width: 80%;
-    height: 2rem;
-    font-size: 1rem;
-    padding: 0 1rem;
-    margin-bottom: 1rem;
-    border-radius: 3rem;
-    border: none;
-    box-shadow: 0px 5px 10px 1 rgba(0, 0, 0, 0.05);
-    outline: none;
-    transition: 0.3s;
+.login-header header {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
-::placeholder{
-    
-    color: #333;
+.input-box .input-field {
+  width: 80%;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3rem;
+  border: none;
+  box-shadow: 0px 5px 10px 1 rgba(0, 0, 0, 0.05);
+  outline: none;
+  transition: 0.3s;
 }
 
-.input-field:focus{
-    width: 90%;
-    
+::placeholder {
+  color: #333;
 }
 
-.submit-btn{
-    font-size: 1rem;
-    align-self: center;
-    width: 50%;
-    border-radius: 30px;
-    height: 3rem;
-    border: none;
-    cursor: pointer;
-    margin-top: 0.5em;
+.input-field:focus {
+  width: 90%;
 }
 
-.submit-btn:hover{
-    color: white;
-    background-color:rgba(97, 43, 224, 0.806);
-    transition: 0.6s;
-    transform: scale(1.1);
+.submit-btn {
+  font-size: 1rem;
+  align-self: center;
+  width: 50%;
+  border-radius: 30px;
+  height: 3rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5em;
 }
 
-.submit-btn p{
-    
-    margin: o.5em 0.8em;
-    font-weight: bold;
+.submit-btn:hover {
+  color: white;
+  background-color: rgba(97, 43, 224, 0.806);
+  transition: 0.6s;
+  transform: scale(1.1);
+}
+
+.submit-btn p {
+  margin: o.5em 0.8em;
+  font-weight: bold;
 }
 
 .forget {
-    margin: 0.3em 0;
-    align-self: flex-end;
+  margin: 0.3em 0;
+  align-self: flex-end;
 }
 
-.forget a{
-    text-decoration: none;
-    cursor: pointer;
-    color: white;
+.forget a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
 }
 
 .flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-.login-footer{
-    margin-top: 1rem;
+.login-footer {
+  margin-top: 1rem;
 }
-.login-footer a{
-    font-size: 1.3em;
-    color: white;
-    cursor: pointer;
+.login-footer a {
+  font-size: 1.3em;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
-    .login-box {
-        width: 45%;
-        height: 23rem;
-    }
-    .header {
-        font-size: 2em;
-    }
+  .login-box {
+    width: 70%;
+    height: 23rem;
+  }
+  .header {
+    font-size: 2em;
+  }
 }
 
 @keyframes slideRight {
-    from { transform: translateX(-200px); } 
-    to { transform: translateX(0);} 
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideDown {
-    from {transform: translateY(-150px);}
-    to {transform: translateY(0)}
+  from {
+    transform: translateY(-150px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
