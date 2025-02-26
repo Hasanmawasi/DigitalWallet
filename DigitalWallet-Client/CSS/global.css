@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,105 +7,103 @@
   font-family: "Poppins", serif;
 }
 
-:root{
-    --primary-color: purple;
-    --secondary-color: white;
-    --text-color: #333;
-    --background-color: rgba(109, 45, 229, 0.806);
+:root {
+  --primary-color: purple;
+  --secondary-color: white;
+  --text-color: #333;
+  --background-color: rgba(109, 45, 229, 0.806);
 }
 
 html {
   font-size: 10px;
 }
 
-ul , ol {
-    list-style: none;
+ul,
+ol {
+  list-style: none;
 }
 
-a { 
-    text-decoration: none;
-    color: var(--secondary-color);
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
 }
-.navbar{
-    background-color: var(--background-color);
-    font-size: 20px;
-    padding: 0.5rem;
+.navbar {
+  background-color: var(--background-color);
+  font-size: 20px;
+  padding: 0.5rem;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 1rem;
-    
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem;
 }
- nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    font-size: 0.7em;
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  font-size: 0.7em;
 }
-.container{
-    margin: 0 auto;
-    max-width: 1100px;
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
 }
-.nav-icon{
-    font-size: 2em;
-    visibility: hidden;
-    color: var(--secondary-color);
+.nav-icon {
+  font-size: 2em;
+  color: var(--secondary-color);
 }
-.heading{
-    color: var(--secondary-color);
-    
+.icon-container{
+    display: none;
 }
-.profileimg{
-    height: 5rem;
-    width: 7rem;
-    border-radius: 50%;
+.heading {
+  color: var(--secondary-color);
 }
-.btn{
-    border-radius: 1rem;
-    background-color: var(--secondary-color);
-    border: none;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 0.3em;
+.profileimg {
+  height: 5rem;
+  width: 7rem;
+  border-radius: 50%;
 }
-
-.small-screen-list{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    z-index: 100;
+.btn {
+  border-radius: 1rem;
+  background-color: var(--secondary-color);
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.3em;
 }
 
-.small-screen-list li{
-    margin: 1em 0;
+.small-screen-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 100;
 }
-.small-screen-list li:hover{
-    background-color: var(--secondary-color);
-    width: 80vw;
-    border-radius: 3rem;
-    padding: 0.5rem;
-    
+
+.small-screen-list li {
+  margin: 1em 0;
 }
-.small-screen-list li:hover a{
-   color: var(--text-color);
-    
-    
+.small-screen-list li:hover {
+  background-color: var(--secondary-color);
+  width: 80vw;
+  border-radius: 3rem;
+  padding: 0.5rem;
+}
+.small-screen-list li:hover a {
+  color: var(--text-color);
 }
 
 .hidden {
-    display: none !important;
-  }
+  display: none !important;
+}
 
-  @media (min-width:0px) and (max-width:700px) {
-    .list{
-        display: none;
-    }
-    .nav-icon{
-        visibility:visible;
-    }
+@media (min-width: 0px) and (max-width: 700px) {
+  .list {
+    display: none;
   }
+  .icon-container{
+    display: block;
+  }
+}
