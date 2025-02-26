@@ -28,3 +28,44 @@
     left: 2em;
 }
 /* end of card balance section */
+
+/* withdraw deposite section */
+
+.withdraw-card{
+    color: var(--secondary-color);
+    width: 25rem;
+    height: 25rem;
+    background-color: var(--background-color);
+}
+
+.action-explain-left{
+    padding: 1rem;
+    border-left: 3px solid var(--background-color);
+    border-bottom: 3px solid var(--background-color) ;
+}
+.action-explain-right{
+    padding: 1rem;
+    border-right: 3px solid var(--background-color);
+    border-bottom: 3px solid var(--background-color) ;
+}
+.section-title{
+    background-color: var(--background-color);
+    width: 70%;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    border-radius: 2rem;
+}
+
+.error-text{
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+}
+/*End of withdraw deposite section */
+
+@media (min-width: 0px) and (max-width: 700px) {
+    .withdraw-section{
+        flex-direction: column;
+    }
+  }

@@ -1,6 +1,6 @@
 
 :root {
-    --primary-color: purple;
+    --primary-color: rgba(184, 29, 184, 0.957);
     --secondary-color: white;
     --text-color: #333;
     --background-color: rgba(109, 45, 229, 0.806);
@@ -12,18 +12,7 @@
     justify-content: center;
     align-items: center;
 }
-/* .flex-row{
-    flex-direction: row;
-}
-.center{
-    justify-content: center;
-}
-.align-center{
-    align-items: center;
-}
-.flex-column{
-    flex-direction: column;
-} */
+
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -39,6 +28,9 @@
 }
 .flex-wrap{
     flex-wrap: wrap;
+}
+.self-start{
+    align-self: flex-start;
 }
 .g-1{
     gap: 1rem;
@@ -76,11 +68,40 @@
     margin-bottom: 3em;
 }
 
+.title{
+    font-size: 20px;
+    font-weight: 900;
+}
 
+.sub-title{
+    font-size: 15px;
+    font-weight: 700;
+}
 .card{
     border: none;
     border-radius: 2rem;
     background-color: var(--secondary-color);
     padding: 1rem;
 
+}
+
+.input-field{
+    border: none;
+    border-bottom: 1px solid var(--primary-color) ;
+    width: 80%;
+    padding: 5px;
+    outline: none;
+    border-radius: 1rem;
+}
+
+.btn{
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    
+}
+.btn p{
+    font-size: 15px;
+    padding: 0.9rem 1.2rem;
 }
