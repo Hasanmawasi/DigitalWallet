@@ -8,4 +8,8 @@ navicon.addEventListener("click",()=>{
     }else{
         toggleList.style.display = "flex";
     }
-})
+});
+
+let date = new Date();
+
+document.getElementById("date").innerText= date.getFullYear()

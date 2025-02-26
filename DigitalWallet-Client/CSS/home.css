@@ -4,10 +4,7 @@
     font-weight: bolder;
     align-self: flex-start;
 }
-.accounts select {
-    border-radius: 10px;
-    padding: 5px;
-}
+
 .ballance-card{
     position: relative;
     font-size: 20px;
@@ -63,7 +60,10 @@
     font-weight: 500;
 }
 /*End of withdraw deposite section */
+/* create wallet section */
 
+
+/* end of create wallet section */
 @media (min-width: 0px) and (max-width: 700px) {
     .withdraw-section{
         flex-direction: column;

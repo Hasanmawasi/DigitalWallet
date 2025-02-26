@@ -84,6 +84,12 @@
     padding: 1rem;
 
 }
+.form-card{
+    padding: 10px;
+    width: 35rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 145, 0, 0.881);
+}
 
 .input-field{
     border: none;
@@ -93,7 +99,9 @@
     outline: none;
     border-radius: 1rem;
 }
-
+.input-field:focus {
+    width: 90%;
+  }
 .btn{
     background-color: var(--secondary-color);
     color: var(--text-color);
@@ -101,7 +109,24 @@
     cursor: pointer;
     
 }
+
+.btn:hover{
+    transform: scale(1.1);
+}
 .btn p{
     font-size: 15px;
     padding: 0.9rem 1.2rem;
+}
+.select {
+    border-radius: 10px;
+    padding: 5px;
+}
+.text-white{
+    color: var(--secondary-color);
+}
+.text-purple{
+    color: var(--background-color);
+}
+.text-primary{
+    color: var(--text-color);
 }
