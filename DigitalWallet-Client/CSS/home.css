@@ -46,10 +46,10 @@
     border-bottom: 3px solid var(--background-color) ;
 }
 .section-title{
-    background-color: var(--background-color);
+    
     width: 70%;
     padding: 1rem;
-    color: white;
+    
     text-align: center;
     border-radius: 2rem;
 }
@@ -64,6 +64,13 @@
 
 
 /* end of create wallet section */
+
+.profile-title{
+    width: 10%;
+    padding: 2px;
+    border-radius: 10px;
+    text-align: center;
+}
 @media (min-width: 0px) and (max-width: 700px) {
     .create-wallet{
         width: 90vw;
