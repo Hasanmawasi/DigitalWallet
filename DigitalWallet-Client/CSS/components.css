@@ -29,6 +29,9 @@
 .flex-wrap{
     flex-wrap: wrap;
 }
+.nowrap{
+    flex-wrap: nowrap;
+}
 .self-start{
     align-self: flex-start;
 }
@@ -129,4 +132,14 @@
 }
 .text-primary{
     color: var(--text-color);
+}
+.bg-primary{
+    background-color: var(--background-color);
+}
+.bg-secandary{
+    background-color:rgba(255, 145, 0, 0.881) ;
+}
+
+.bg-white{
+    background-color: var(--secondary-color);
 }

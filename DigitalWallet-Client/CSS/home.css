@@ -65,7 +65,15 @@
 
 /* end of create wallet section */
 @media (min-width: 0px) and (max-width: 700px) {
+    .create-wallet{
+        width: 90vw;
+    }
     .withdraw-section{
         flex-direction: column;
     }
+    .ballance-card{
+        width: 70%;
+        height: 15rem;
+    }
+
   }
