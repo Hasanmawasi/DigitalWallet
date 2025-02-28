@@ -73,14 +73,14 @@ nav ul {
   width: 7rem;
   border-radius: 50%;
 }
-.btn {
+/* .btn {
   border-radius: 1rem;
   background-color: var(--secondary-color);
   border: none;
   font-size: 1em;
   font-weight: bold;
   padding: 0.3em;
-}
+} */
 
 .small-screen-list {
   display: none;

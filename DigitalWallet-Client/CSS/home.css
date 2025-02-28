@@ -65,6 +65,14 @@
 
 /* end of create wallet section */
 
+/* service page */
+.toggleSection{
+    height: 70vh;
+    position: relative;
+}
+
+
+/* ===== */
 .profile-title{
     width: 10%;
     padding: 2px;
@@ -82,5 +90,5 @@
         width: 70%;
         height: 15rem;
     }
-
+   
   }
