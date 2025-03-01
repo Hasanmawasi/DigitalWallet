@@ -6,13 +6,13 @@ class User{
   private $is_verify;
   private $is_premuim;
 
-  function  __construct($name, $email, $password, $is_verify, $is_premuim)
+  function  __construct($name, $email, $password)
   {
     $this->name = $name;
-    $this->email = $email;
+    $this->setUserEmail($email);
     $this->password = $password;
-    $this->setVerify($is_verify);
-    $this->setPremuim($is_premuim);
+    $this->is_verify= false;
+    $this->is_premuim= false;
 
   }
 
@@ -24,7 +24,9 @@ class User{
   }
 
   function setUserEmail($newEmail){
-    $this->email = $newEmail;
+    if(filter_var($newEmail,FILTER_VALIDATE_EMAIL)){
+      $this->email = $newEmail;
+    }
   }
   function getUserEmail(){
     return $this->email;

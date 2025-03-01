@@ -30,7 +30,7 @@ a {
   justify-content: center;
   flex-direction: column;
   width: 20rem;
-  height: 23rem;
+  height: 25rem;
   padding: 1rem;
   border: 1px solid #333;
   border-radius: 20px;
@@ -40,7 +40,11 @@ a {
 
 .login-header {
   text-align: center;
-  margin: 2rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
+}
+.login-header p{
+color: red;
+font-weight: bold;
 }
 .login-header header {
   color: white;
@@ -50,7 +54,7 @@ a {
 
 .input-box .input-field {
   width: 80%;
-  height: 2rem;
+  height: 2.5rem;
   font-size: 1rem;
   padding: 0 1rem;
   margin-bottom: 1rem;
@@ -88,7 +92,7 @@ a {
 }
 
 .submit-btn p {
-  margin: o.5em 0.8em;
+  margin: 0.5em 0.8em;
   font-weight: bold;
 }
 
@@ -110,7 +114,7 @@ a {
   flex-wrap: wrap;
 }
 .login-footer {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .login-footer a {
   font-size: 1.3em;
@@ -125,6 +129,12 @@ a {
   }
   .header {
     font-size: 2em;
+  }
+  .login-header header{
+    font-size: 1em;
+  }
+  .sign-up-link , .sign-up-link a{
+    font-size: 1em;
   }
 }
 

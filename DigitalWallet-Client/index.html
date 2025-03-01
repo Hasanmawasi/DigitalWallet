@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/loginSigin.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Wallet Login</title>
 </head>
 <body>
@@ -33,19 +34,19 @@
     <div class="login-box" id="signup" >
         <div class="login-header">
             <header>Sign Up</header>
+            <p id="error-sign"></p>
         </div>
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="User Name" required>
+            <input type="text" name="username" id="Susername" class="input-field" placeholder="User Name" required>
         </div>
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" required>
+            <input type="text" name="email" id="Semail" class="input-field" placeholder="Email" required>
         </div>
         <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" required>
+            <input type="password" name="password" id="Spassword" class="input-field" placeholder="Password" required>
         </div>
+        <button class="submit-btn" id="signup-btn" ><p>Sign up</p></button>
         
-        
-        <button class="submit-btn" ><p>Sign up</p></button>
         <div class="flex login-footer" > 
             <div class="sign-up-link">
                 <p>Do you have an account? <a id="tologin">login</a></p>

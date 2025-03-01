@@ -10,7 +10,7 @@ if($mysqli->connect_error){
     echo"connection fail";
 }
 
-echo"connected successfully";
+// echo"connected successfully";
 
 
 ?>
