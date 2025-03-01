@@ -71,7 +71,15 @@
     position: relative;
 }
 
-
+/* ===== */
+/* about us page */
+    .about{
+        font-size: 20px;
+        height: 15rem;
+        width: 70%;
+        border-radius: 5rem;
+        background-color: rgba(126, 121, 114, 0.79);
+    }
 /* ===== */
 .profile-title{
     width: 10%;
