@@ -65,6 +65,22 @@
 
 /* end of create wallet section */
 
+/* service page */
+.toggleSection{
+    height: 70vh;
+    position: relative;
+}
+
+/* ===== */
+/* about us page */
+    .about{
+        font-size: 20px;
+        height: 15rem;
+        width: 70%;
+        border-radius: 5rem;
+        background-color: rgba(126, 121, 114, 0.79);
+    }
+/* ===== */
 .profile-title{
     width: 10%;
     padding: 2px;
@@ -82,5 +98,5 @@
         width: 70%;
         height: 15rem;
     }
-
+   
   }
