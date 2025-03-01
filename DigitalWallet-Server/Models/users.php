@@ -11,8 +11,8 @@ class User{
     $this->name = $name;
     $this->email = $email;
     $this->password = $password;
-    $this->is_verify= $is_verify;
-    $this->is_premuim = $is_premuim;
+    $this->setVerify($is_verify);
+    $this->setPremuim($is_premuim);
 
   }
 
@@ -32,9 +32,26 @@ class User{
   function setUserPassword($newPass){
     $this->password = $newPass;
   }
-  
+  function getPassword(){
+    return $this->password;
+  }
 
-
+  function setVerify($newVerify){
+    if($newVerify == true || $newVerify== false){
+        $this->is_verify = $newVerify;
+    }
+  }
+  function getVerify(){
+    return $this->is_verify;
+  }
+  function setPremuim($newPremuim){
+    if($newPremuim == true || $newPremuim== false){
+        $this->is_premuim = $newPremuim;
+    }
+  }
+  function getPremuim(){
+    return $this->is_premuim;
+  }
 }
 
 
