@@ -8,9 +8,9 @@ class wallet{
     private $dailylimit;
     private $createdAt;
 
-    function __construct($walletid,$user_id, $balance,$currency,$dailylimit)
+    function __construct($user_id, $balance,$currency,$dailylimit)
     {
-        $this->walletid = $walletid;
+        
         $this->user_id = $user_id;
         $this->setBalance($balance) ;
         $this->currency = $currency;
@@ -36,6 +36,10 @@ class wallet{
 
     public function getDailyLimit() {
         return $this->dailylimit;
+    }
+    public function getCreateAt(){
+        return $this->createdAt;
+
     }
     public function setWalletId($walletid) {
         $this->walletid = $walletid;

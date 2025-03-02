@@ -12,18 +12,19 @@
     <div class="login-box hidden" id="login" >
         <div class="login-header">
             <header>login</header>
+            <p id="error-login"></p>
         </div>
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" required>
+            <input type="text" id="lemail" class="input-field" placeholder="Email" required>
         </div>
         <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" required>
+            <input type="password" id="lpassword" class="input-field" placeholder="Password" required>
         </div>
         <div class="forget">
             <a href="#">forget Password ?</a>
         </div>
         
-        <button class="submit-btn" ><p>Sigin in</p></button>
+        <button class="submit-btn" id="login-btn"><p>Sigin in</p></button>
         <div class="flex login-footer" > 
             <div class="sign-up-link">
                 <p>Don't have an account? <a id="tosignup">Sign Up</a></p>

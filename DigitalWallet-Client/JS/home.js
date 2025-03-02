@@ -30,7 +30,18 @@ document.getElementById("QR").addEventListener("click", () => {
 function toggleServiceSections(comonClass, spicificClass) {
   document.querySelectorAll("." + comonClass).forEach((section) => {
     section.classList.add("hidden");
-    console.log("hello");
   });
   document.getElementsByClassName(spicificClass)[0].classList.remove("hidden");
 }
+
+const base_url = "http://localhost/"
+// Create wallet function
+
+const createWallet = document.getElementById("createwallet");
+createWallet.addEventListener("click",async()=>{
+  const walletname = document.getElementById("walletname");
+  const balance = document.getElementById("balance");
+  const currency = document.getElementById("currency");
+
+
+})
