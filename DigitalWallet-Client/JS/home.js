@@ -33,3 +33,15 @@ function toggleServiceSections(comonClass, spicificClass) {
   });
   document.getElementsByClassName(spicificClass)[0].classList.remove("hidden");
 }
+
+const base_url = "http://localhost/"
+// Create wallet function
+
+const createWallet = document.getElementById("createwallet");
+createWallet.addEventListener("click",async()=>{
+  const walletname = document.getElementById("walletname");
+  const balance = document.getElementById("balance");
+  const currency = document.getElementById("currency");
+
+
+})

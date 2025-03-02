@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("../../Utils/header.php");
 require("../../connection/connection.php");
 require("../../Models/userClass.php");
@@ -22,7 +23,8 @@ try {
         $stored_password = $loginUser['password'];
 
         if(password_verify($entered_password, $stored_password)){
-
+            $_SESSION['user_id']=$loginUser["user_id"];
+            $_SESSION['user_email']=$loginUser["user_email"];
             echo json_encode(["success"=>true , "message"=>"User  found"]);
         }else{
             echo json_encode(["success"=>false , "message"=>"Incorrect Password"]);
@@ -31,6 +33,7 @@ try {
     }
 
 } catch (Exception $e) {
+    json_encode( ["error" => $e->getMessage()]);
     
 }
 

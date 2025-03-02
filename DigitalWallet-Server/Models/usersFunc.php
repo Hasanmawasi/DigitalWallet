@@ -31,7 +31,7 @@ class usersFunc{
         }
     }
     // search for user return true if found and used in sign up to find if the email already in database
-    function searchUserByEmail(User $user){
+    public function searchUserByEmail(User $user){
         $sql = "SELECT * FROM users WHERE user_email = ?";
         $stmt = $this->db->prepare($sql);
         $email = $user->getUserEmail();

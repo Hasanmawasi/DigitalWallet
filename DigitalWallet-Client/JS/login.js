@@ -23,6 +23,7 @@ signupButtom.addEventListener('click',async ()=>{
     const username = document.getElementById("Susername").value;
     const password = document.getElementById("Spassword").value;
     const email = document.getElementById("Semail").value;
+    
     try {
         const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/signup.php",{
             username: username,
