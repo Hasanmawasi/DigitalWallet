@@ -13,12 +13,21 @@ if(empty($data["password"]) || empty($data["email"])){
 try {
     include("../../Utils/emailvalidate.php");
     $user = new User("",$data["email"],$data["password"]);
-    $userFunc = new usersFunc($mysql);
-
-    if(!$userFunc->searchUserByEmail($user)){
+    $userFunc = new usersFunc($mysqli);
+    $loginUser = $userFunc->searchUserByEmail($user);
+    if(!$loginUser){
         echo json_encode(["success"=>false , "message"=>"User not found"]);
     }else{
-        echo json_encode(["success"=>true , "message"=>"User  found"]);
+        $entered_password = $data["password"];
+        $stored_password = $loginUser['password'];
+
+        if(password_verify($entered_password, $stored_password)){
+
+            echo json_encode(["success"=>true , "message"=>"User  found"]);
+        }else{
+            echo json_encode(["success"=>false , "message"=>"Incorrect Password"]);
+        }
+
     }
 
 } catch (Exception $e) {
