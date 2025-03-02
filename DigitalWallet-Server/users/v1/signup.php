@@ -1,8 +1,6 @@
 <?php 
 
-header("Access-Control-Allow-Origin: http://127.0.0.1:5500");// allow the front end to access to the back end
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
+include("../../Utils/header.php");
 
 
 require("../../connection/connection.php");
@@ -18,12 +16,11 @@ if(empty($data['username']) || empty($data["password"]) || empty($data["email"])
    return;
 }
 try{
-   if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
-        echo json_encode(["success"=>false , "message"=>"not a vailed email !"]);
-        return;
-   }
-   $sql = "SELECT * FROM users WHERE email = ?";
+    // to make sure the entered email in correct format
+   include("../../Utils/emailvalidate.php");
 
+   $sql = "SELECT * FROM users WHERE email = ?";
+    // create user object from user class
     $user = new User($data['username'],$data["email"],$data["password"],false,false);
     $userFunc = new usersFunc($mysqli);
 
@@ -33,7 +30,7 @@ try{
         echo json_encode(["success"=>false , "message"=>"Email is already exsit"]);
      }
 }catch (Exception $e) {
-    echo json_encode( ["error" => $e->getMessage()]);
+     json_encode( ["error" => $e->getMessage()]);
 }
  
 ?>

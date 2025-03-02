@@ -34,7 +34,6 @@ signupButtom.addEventListener('click',async ()=>{
             }
         }
     );
-    
         if(response.data.success){
             window.location.href= "home.html";
         }else{
@@ -44,6 +43,5 @@ signupButtom.addEventListener('click',async ()=>{
     } catch (error) {
          console.error("Error: ", error);
     }
-    
+});
 
-})

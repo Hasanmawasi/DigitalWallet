@@ -30,7 +30,6 @@ document.getElementById("QR").addEventListener("click", () => {
 function toggleServiceSections(comonClass, spicificClass) {
   document.querySelectorAll("." + comonClass).forEach((section) => {
     section.classList.add("hidden");
-    console.log("hello");
   });
   document.getElementsByClassName(spicificClass)[0].classList.remove("hidden");
 }
