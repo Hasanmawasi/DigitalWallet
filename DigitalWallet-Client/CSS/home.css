@@ -21,8 +21,12 @@
 }
 
 .wallet-icon{
-    position: absolute;
+   
+    align-self: flex-start;
     left: 2em;
+}
+.card-number{
+    font-weight: 800;
 }
 /* end of card balance section */
 
@@ -95,8 +99,10 @@
         flex-direction: column;
     }
     .ballance-card{
-        width: 70%;
+        width: 60%;
         height: 15rem;
+        flex-wrap: nowrap !important;
+        font-size: 15px;
     }
    
   }

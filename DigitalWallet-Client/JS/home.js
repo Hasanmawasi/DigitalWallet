@@ -96,11 +96,19 @@ console.log(response)
 
 const wallets = document.getElementById("wallets");
 wallets.addEventListener('change',async ()=>{
-  
+  walletData ();
 })
 
-function walletData (){
-  // let balance = 
+
+async function  walletData () {
+  let walletid = document.getElementById("wallets").value;
+  const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWalletById.php`,{
+    wallet_id:walletid,
+  });
+  let wallet = response.data.walletData; 
+  document.getElementById("cardAmount").innerText=wallet.balance;
+  document.getElementById("currency").innerText=wallet.currency;
+  // console.log(response.data.walletData);
 }
  document.addEventListener('DOMContentLoaded',async ()=>{
   const userID = 31;
@@ -116,5 +124,5 @@ function walletData (){
     option.textContent= wallet.wallet_name;
     wallets.appendChild(option);
   })
-
+  await walletData ();
  })
