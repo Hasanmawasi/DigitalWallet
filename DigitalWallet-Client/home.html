@@ -12,6 +12,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
   </head>
@@ -79,8 +81,8 @@
         <div class="flex-col card withdraw-card mt-3">
             <h2 class="title">Withdraw</h2>
             <h3 class="p-1 sub-title self-start ">Currency: dollar<span id=""></span> </h3>
-            <input type="number" class="input-field mb-1" name="with-drow" id="" placeholder="enter amount">
-            <button class="btn "><p>Confirm</p></button>
+            <input type="number" class="input-field mb-1" name="with-drow" id="withAmount" placeholder="enter amount">
+            <button class="btn " id="withdraw"><p>Confirm</p></button>
         </div>
         <div class="action-explain-left">
             <h2 class="title text-primary"> Withdraw from Your Balance</h2>
@@ -101,9 +103,9 @@
         <div class="flex-col card withdraw-card mt-3">
             <h2 class="title">Deposit</h2>
             <h3 class="p-1 sub-title self-start ">Currency: dollar<span id=""></span> </h3>
-            <input type="number" class="input-field mb-1" name="with-drow" id="" placeholder="Enter amount">
+            <input type="number" class="input-field mb-1" name="with-drow" id="depAmount" placeholder="Enter amount">
             <p class="error-text"> </p>
-            <button class="btn "><p>Confirm</p></button>
+            <button class="btn" id="deposit"><p>Confirm</p></button>
         </div>
         
     </section>
@@ -117,8 +119,8 @@
             <input type="text" name="walletname" id="walletname" class="input-field mt-1" placeholder="Set Wallet Name">
             <input type="number" name="balance" id="balance" class="input-field mt-1" placeholder="initial balance">
             <select class="select mt-1" name="currency" id="currency">
-                <option value="">dollar</option>
-                <option value="">lebanese lira</option>
+                <option value="dollar">dollar</option>
+                <option value="lebanese lira">lebanese lira</option>
             </select>
             <button class="btn mt-1" id="createwallet"><p>Create</p></button>
         </div>
