@@ -25,7 +25,9 @@ try {
         if(password_verify($entered_password, $stored_password)){
             $_SESSION['user_id']=$loginUser["user_id"];
             $_SESSION['user_email']=$loginUser["user_email"];
-            echo json_encode(["success"=>true , "message"=>"User  found"]);
+            session_regenerate_id(true); 
+            session_write_close();
+            echo json_encode(["success"=>true, "message"=>"User  found","sesion"=>session_save_path(),"u"=>$loginUser]);
         }else{
             echo json_encode(["success"=>false , "message"=>"Incorrect Password"]);
         }

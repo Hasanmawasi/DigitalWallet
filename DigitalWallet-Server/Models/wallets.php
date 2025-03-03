@@ -2,15 +2,16 @@
 class wallet{
 
     private $walletid;
+    private $walletname;
     private $user_id;
     private $balance;
     private $currency;
     private $dailylimit;
     private $createdAt;
 
-    function __construct($user_id, $balance,$currency,$dailylimit)
+    function __construct($walletname,$user_id, $balance,$currency,$dailylimit)
     {
-        
+        $this->walletname = $walletname;
         $this->user_id = $user_id;
         $this->setBalance($balance) ;
         $this->currency = $currency;
@@ -41,10 +42,16 @@ class wallet{
         return $this->createdAt;
 
     }
+    public function getwalletName(){
+        return $this->walletname;
+    }
+
     public function setWalletId($walletid) {
         $this->walletid = $walletid;
     }
-
+    public function setWalletName($name){
+        $this->walletname = $name;
+    }
     public function setUserId($user_id) {
         $this->user_id = $user_id;
     }
@@ -63,7 +70,17 @@ class wallet{
         $this->dailylimit = $dailylimit;
     }
 
-
+    public function getWalletInfo(){
+        return [
+            "wallet_id"=>$this->getWalletId(),
+            "user_id"=>$this->getUserId(),
+            "balance"=>$this->getBalance(),
+            "currency"=>$this->getCurrency(),
+            "created_at"=>$this->getCreateAt(),
+            "daily_limit"=>$this->getDailyLimit(),
+            "wallet_name"=>$this->getwalletName()
+        ];
+    }
 
 }
 
