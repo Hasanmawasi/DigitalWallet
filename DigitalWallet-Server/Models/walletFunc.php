@@ -81,6 +81,7 @@ private $db;
                $data= $result->fetch_assoc();
                 $wallet = new wallet($data['wallet_name'],$data["user_id"],$data["balance"],$data["currency"],$data["daily_limit"]);
                 $wallet->setWalletId($data['wallet_id']);
+                echo json_encode(["walletData"=>$wallet->getWalletInfo()]);
                 return $wallet;
             }
         }
