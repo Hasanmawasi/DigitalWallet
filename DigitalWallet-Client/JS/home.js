@@ -94,3 +94,11 @@ console.log(response)
   }
 });
 
+const wallets = document.getElementById("wallets");
+wallets.addEventListener('change',async ()=>{
+  const userID = 31;
+  const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWallets.php`,{
+    user_id:userID
+  })
+  console.log(response);
+})

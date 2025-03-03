@@ -83,6 +83,25 @@ private $db;
             }
         }
     }
+
+    public function getWallets(int $userID){
+        $sql = "SELECT * FROM wallets WHERE user_id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("i",$userID);
+        if($stmt->execute()){
+            $result = $stmt -> get_result();
+            if($result-> num_rows >0){
+               $data= [];
+            while($row= $result->fetch_assoc()){
+                $wallet = new wallet($row["user_id"],$row['balance'],$row["currency"],$row["daily_limit"]);
+                $wallet->setWalletId($row['wallet_id']);
+                array_push($data , $wallet->getWalletInfo());
+            }
+            return json_encode(["walets"=>$data]) ;
+            }
+        }
+
+    }
     
 } 
 

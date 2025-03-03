@@ -63,7 +63,16 @@ class wallet{
         $this->dailylimit = $dailylimit;
     }
 
-
+    public function getWalletInfo(){
+        return [
+            "wallet_id"=>$this->getWalletId(),
+            "user_id"=>$this->getUserId(),
+            "balance"=>$this->getBalance(),
+            "currency"=>$this->getCurrency(),
+            "created_at"=>$this->getCreateAt(),
+            "daily_limit"=>$this->getDailyLimit()
+        ];
+    }
 
 }
 
