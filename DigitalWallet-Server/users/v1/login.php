@@ -12,6 +12,7 @@ if(empty($data["password"]) || empty($data["email"])){
     return;
  }
 try {
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
     include("../../Utils/emailvalidate.php");
     $user = new User("",$data["email"],$data["password"]);
     $userFunc = new usersFunc($mysqli);
@@ -23,21 +24,23 @@ try {
         $stored_password = $loginUser['password'];
 
         if(password_verify($entered_password, $stored_password)){
-            $_SESSION['user_id']=$loginUser["user_id"];
-            $_SESSION['user_email']=$loginUser["user_email"];
             session_regenerate_id(true); 
-            session_write_close();
-            echo json_encode(["success"=>true, "message"=>"User  found","sesion"=>session_save_path(),"u"=>$loginUser]);
+            $_SESSION['ID']=$loginUser["user_id"];
+            $_SESSION['user_email']=$loginUser["user_email"];
+
+            echo json_encode(["success"=>true, "message"=>"User  found","user_id"=>$loginUser["user_id"]]);
         }else{
             echo json_encode(["success"=>false , "message"=>"Incorrect Password"]);
         }
 
     }
+}
 
 } catch (Exception $e) {
     json_encode( ["error" => $e->getMessage()]);
     
 }
 
+session_write_close();
 
 ?>

@@ -23,14 +23,37 @@ class usersFunc{
                              $verify,
                              $premium
                             );
-
+        
+        
         if($stmt->execute()) {
            echo json_encode(["success"=>true , "message"=>"User added successfully"]);
         }else{
-            return json_encode(["success"=>false , "message"=>"$stmt->error"]);
+            echo json_encode(["success"=>false , "message"=>$stmt->error]);
         }
     }
-    // search for user return true if found and used in sign up to find if the email already in database
+    
+    public function createCard($user_id){
+        $sql = "INSERT INTO cards_info(card_number ,postal_code, expire_date,user_id) VALUES(?,?,?,?)";
+        $stmt = $this->db->prepare($sql);
+
+            $card_number = round(microtime(true) * 1000);
+                $postal_code=0000;
+                $expire_date = date('Y-m-d', strtotime('+5 years'));
+
+                $stmt -> bind_param("iisi",
+                $card_number,
+                $postal_code,
+                $expire_date,
+                $user_id
+              );
+              if($stmt->execute()) {
+                echo json_encode(["success"=>true , "message"=>"card added successfully"]);
+             }else{
+                 echo json_encode(["success"=>false , "message"=>$stmt->error]);
+             }               
+              
+    }
+    // search for user return user if found and used in sign up  and login to find if the email already in database
     public function searchUserByEmail(User $user){
         $sql = "SELECT * FROM users WHERE user_email = ?";
         $stmt = $this->db->prepare($sql);
@@ -45,6 +68,11 @@ class usersFunc{
         }
     }
 
+    public function getUserID($email){
+        $sql = "SELECT user_id from users where email = ?";
+        
+
+    }
 
 }
 
