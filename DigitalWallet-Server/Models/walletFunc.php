@@ -8,14 +8,16 @@ private $db;
     }
 
     public function createWallet(wallet $wallet){
-        $sql = "INSERT INTO wallets(user_id,balance,currency,daily_limit,created_at) VALUES(?,?,?,?,?)";
+        $sql = "INSERT INTO wallets(wallet_name,user_id,balance,currency,daily_limit,created_at) VALUES(?,?,?,?,?,?)";
         $stmt= $this->db->prepare($sql);
         $user_id= $wallet->getUserId();
         $balance= $wallet->getBalance();
         $currency = $wallet->getCurrency();
         $daily_limit = $wallet->getDailyLimit();
         $created_at = $wallet->getCreateAt();
-        $stmt->bind_param("iisis",
+        $walletName = $wallet->getwalletName();
+        $stmt->bind_param("siisis",
+                         $walletName,
                         $user_id,
                         $balance,
                         $currency,
@@ -77,7 +79,7 @@ private $db;
             $result = $stmt -> get_result();
             if($result-> num_rows >0){
                $data= $result->fetch_assoc();
-                $wallet = new wallet($data["user_id"],$data["balance"],$data["currency"],$data["daily_limit"]);
+                $wallet = new wallet($data['wallet_name'],$data["user_id"],$data["balance"],$data["currency"],$data["daily_limit"]);
                 $wallet->setWalletId($data['wallet_id']);
                 return $wallet;
             }
@@ -93,7 +95,7 @@ private $db;
             if($result-> num_rows >0){
                $data= [];
             while($row= $result->fetch_assoc()){
-                $wallet = new wallet($row["user_id"],$row['balance'],$row["currency"],$row["daily_limit"]);
+                $wallet = new wallet($row['wallet_name'],$row["user_id"],$row['balance'],$row["currency"],$row["daily_limit"]);
                 $wallet->setWalletId($row['wallet_id']);
                 array_push($data , $wallet->getWalletInfo());
             }

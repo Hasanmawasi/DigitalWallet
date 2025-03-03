@@ -16,8 +16,9 @@ if(empty($data['walletname']) || empty($data["balance"]) || empty($data["currenc
     $userID =31;
     $balance = $data["balance"];
     $currency= $data["currency"];
+    $walletname= $data["walletname"];
     $daily_limit = 50;
-    $wallet = new wallet($userID,$balance,$currency,$daily_limit);
+    $wallet = new wallet($walletname,$userID,$balance,$currency,$daily_limit);
     $walletFunc = new walletFunc($mysqli);
     $walletFunc->createWallet($wallet);
     if( $walletFunc->createWallet($wallet)){

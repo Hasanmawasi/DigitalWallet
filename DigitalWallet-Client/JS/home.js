@@ -96,9 +96,25 @@ console.log(response)
 
 const wallets = document.getElementById("wallets");
 wallets.addEventListener('change',async ()=>{
+  
+})
+
+function walletData (){
+  // let balance = 
+}
+ document.addEventListener('DOMContentLoaded',async ()=>{
   const userID = 31;
   const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWallets.php`,{
     user_id:userID
   })
-  console.log(response);
-})
+  let fetchwallet =await response.data.wallets;
+  let data = JSON.parse(fetchwallet);
+  let walletsData = data.walets;
+  walletsData.map((wallet)=>{
+    let option = document.createElement("option");
+    option.value = wallet.wallet_id;
+    option.textContent= wallet.wallet_name;
+    wallets.appendChild(option);
+  })
+
+ })
