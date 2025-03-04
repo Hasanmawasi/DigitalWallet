@@ -43,11 +43,14 @@
     padding: 1rem;
     border-left: 3px solid var(--background-color);
     border-bottom: 3px solid var(--background-color) ;
+    margin: 0 1rem;
 }
 .action-explain-right{
     padding: 1rem;
     border-right: 3px solid var(--background-color);
     border-bottom: 3px solid var(--background-color) ;
+    margin: 0 1rem;
+
 }
 .section-title{
     

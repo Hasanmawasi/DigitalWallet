@@ -35,6 +35,8 @@ signupButtom.addEventListener('click',async ()=>{
             }
         }
     );
+    let s = JSON.stringify(response.data);
+    console.log(s);
         if(response.data.success){
         localStorage.setItem("id", response.data.user_id);
         window.location.href= "home.html";

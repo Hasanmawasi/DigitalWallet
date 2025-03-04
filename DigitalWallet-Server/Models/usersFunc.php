@@ -47,7 +47,7 @@ class usersFunc{
                 $user_id
               );
               if($stmt->execute()) {
-                echo json_encode(["success"=>true , "message"=>"card added successfully"]);
+                // echo json_encode(["success"=>true , "message"=>"card added successfully"]);
              }else{
                  echo json_encode(["success"=>false , "message"=>$stmt->error]);
              }               
@@ -68,11 +68,7 @@ class usersFunc{
         }
     }
 
-    public function getUserID($email){
-        $sql = "SELECT user_id from users where email = ?";
-        
-
-    }
+    
 
 }
 

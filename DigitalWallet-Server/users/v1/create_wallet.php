@@ -22,9 +22,7 @@ if(empty($data['walletname']) || empty($data["balance"]) || empty($data["currenc
     $wallet = new wallet($walletname,$userID,$balance,$currency,$daily_limit);
     $walletFunc = new walletFunc($mysqli);
     $walletFunc->createWallet($wallet);
-    if( $walletFunc->createWallet($wallet)){
-        echo json_encode(["success"=>true,"message"=>"wallet created"]);
-    }
+    
  
  } catch (Exception $th) {
     echo json_encode(["success"=>false,"message"=>"wallet failed to create!"]);

@@ -14,25 +14,7 @@ let date = new Date();
 
 document.getElementById("date").innerText = date.getFullYear();
 
-// change btween sercive sections
 
-// document.getElementById("p2p").addEventListener("click", () => {
-//   toggleServiceSections("toggleSection", "p2p");
-// });
-// document.getElementById("QR").addEventListener("click", () => {
-//     toggleServiceSections("toggleSection", "QR");
-//   });
-//   document.getElementById("schedule").addEventListener("click", () => {
-//     toggleServiceSections("toggleSection", "schedule");
-//   });
-
-// give this func  classes to add hidden to all except the secific one
-function toggleServiceSections(comonClass, spicificClass) {
-  document.querySelectorAll("." + comonClass).forEach((section) => {
-    section.classList.add("hidden");
-  });
-  document.getElementsByClassName(spicificClass)[0].classList.remove("hidden");
-}
 
 const base_url = "http://localhost/"
 // Create wallet function
@@ -58,9 +40,16 @@ createWallet.addEventListener("click",async()=>{
  } catch (error) {
    console.log(error)
  }
-
-
 });
+
+async function getCardNumber() {
+  const cardNumber= document.getElementById("cardnumber");
+  const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/getCardNumber.php",{
+    user_id: localStorage.getItem("id"),
+  })
+  console.log(response);
+  cardNumber.innerText=response.data.card.card_number;
+}
 // with draw fitch
 const withdraw = document.getElementById("withdraw");
 withdraw.addEventListener('click',async ()=>{
@@ -106,6 +95,7 @@ wallets.addEventListener('change',async ()=>{
 
 async function  walletData () {
   let walletid = document.getElementById("wallets").value;
+  localStorage.setItem("walletInUse",walletid);
   const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWalletById.php`,{
     wallet_id:walletid,
   });
@@ -129,4 +119,5 @@ async function  walletData () {
     wallets.appendChild(option);
   })
   await walletData ();
+  await getCardNumber();
  })

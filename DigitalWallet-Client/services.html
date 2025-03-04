@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
   </head>
@@ -58,10 +59,10 @@
         <section class="flex flex-wrap g-1 mt-2 toggleSection p2p ">
             <div class="form-card flex-col bg-primary">
                 <h2 class="title  text-white" >Peer to Peer</h2>
-                <input type="text" class="input-field mt-1" name="" placeholder="Reciever Email">
-                <input type="text" class="input-field mt-1" name="" placeholder="Amount">
-                <input type="text" class="input-field mt-1" name="" placeholder="currency">
-                <button class="btn mt-1"><p>Send</p></button>
+                <input type="text" class="input-field mt-1" name="" id="recieverEmail" placeholder="Reciever Email">
+                <input type="text" class="input-field mt-1" name="" id="sendAmount" placeholder="Amount">
+                <input type="text" class="input-field mt-1" name="" id="currency" placeholder="currency">
+                <button class="btn mt-1" id="send"><p>Send</p></button>
              </div>
              <div class="action-explain-left width-50">
                 <h2 class="title text-primary"> Quic transfer </h2>
@@ -113,6 +114,6 @@
         <i class="fab fa-linkedin-in"></i>
     </div>
 </footer>
-    <script src="JS/home.js"></script>
+    <script src="JS/services.js"></script>
   </body>
 </html>
