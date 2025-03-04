@@ -43,11 +43,14 @@
     padding: 1rem;
     border-left: 3px solid var(--background-color);
     border-bottom: 3px solid var(--background-color) ;
+    margin: 0 1rem;
 }
 .action-explain-right{
     padding: 1rem;
     border-right: 3px solid var(--background-color);
     border-bottom: 3px solid var(--background-color) ;
+    margin: 0 1rem;
+
 }
 .section-title{
     
@@ -61,13 +64,10 @@
 .error-text{
     color: red;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 900;
 }
 /*End of withdraw deposite section */
-/* create wallet section */
 
-
-/* end of create wallet section */
 
 /* service page */
 .toggleSection{
@@ -79,11 +79,33 @@
 /* about us page */
     .about{
         font-size: 20px;
-        height: 15rem;
+        height: fit-content;
+        padding: 4rem;
         width: 70%;
         border-radius: 5rem;
         background-color: rgba(126, 121, 114, 0.79);
     }
+    .about-section{
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .about-card{
+        width: 30%;
+    }
+    .about-body{
+        height: 90%;
+    }
+    .about-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        }
+        .about-title{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bolder;
+        }
 /* ===== */
 .profile-title{
     width: 10%;
@@ -91,6 +113,8 @@
     border-radius: 10px;
     text-align: center;
 }
+
+
 @media (min-width: 0px) and (max-width: 700px) {
     .create-wallet{
         width: 90vw;
@@ -104,5 +128,10 @@
         flex-wrap: nowrap !important;
         font-size: 15px;
     }
-   
+   .about-info{
+   flex-direction: column;
+   }
+   .about-card {
+    width: 73%;
+}
   }

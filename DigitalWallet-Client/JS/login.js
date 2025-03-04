@@ -35,10 +35,13 @@ signupButtom.addEventListener('click',async ()=>{
             }
         }
     );
+    let s = JSON.stringify(response.data);
+    console.log(s);
         if(response.data.success){
-            window.location.href= "home.html";
+        localStorage.setItem("id", response.data.user_id);
+        window.location.href= "home.html";
         }else{
-            console.log(response.data)
+            console.log(response)
             document.getElementById("error-sign").innerText=response.data.message;
         }
     } catch (error) {
@@ -57,6 +60,7 @@ try {
             password
         },
         {
+            withCredentials: true ,
             headers: {
                 "Content-Type": "application/json"
             }
@@ -64,6 +68,7 @@ try {
     );
     console.log(response);
     if(response.data.success){
+        localStorage.setItem("id", response.data.user_id);
         window.location.href= "home.html";
     }else{
         document.getElementById("error-login").innerText=response.data.message;

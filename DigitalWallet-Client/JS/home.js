@@ -14,64 +14,55 @@ let date = new Date();
 
 document.getElementById("date").innerText = date.getFullYear();
 
-// change btween sercive sections
 
-// document.getElementById("p2p").addEventListener("click", () => {
-//   toggleServiceSections("toggleSection", "p2p");
-// });
-// document.getElementById("QR").addEventListener("click", () => {
-//     toggleServiceSections("toggleSection", "QR");
-//   });
-//   document.getElementById("schedule").addEventListener("click", () => {
-//     toggleServiceSections("toggleSection", "schedule");
-//   });
-
-// give this func  classes to add hidden to all except the secific one
-function toggleServiceSections(comonClass, spicificClass) {
-  document.querySelectorAll("." + comonClass).forEach((section) => {
-    section.classList.add("hidden");
-  });
-  document.getElementsByClassName(spicificClass)[0].classList.remove("hidden");
-}
 
 const base_url = "http://localhost/"
 // Create wallet function
 
 const createWallet = document.getElementById("createwallet");
 createWallet.addEventListener("click",async()=>{
-  const walletname = document.getElementById("walletname").value;
-  const balance = document.getElementById("balance").value;
-  const currency = document.getElementById("currency").value;
-
- try {
+  try {
+  const walletname = document.getElementById("Cwalletname").value;
+  const balance = document.getElementById("Cbalance").value;
+  const currency = document.getElementById("Ccurrency").value;
+    const id = localStorage.getItem("id");
   const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/create_wallet.php",{
-    walletname,
-    balance,
-    currency
+    walletname: walletname,
+    balance: balance,
+    currency: currency,
+    id,
    }, {
     headers: {
         "Content-Type": "application/json"
     }
 })
-console.log(response)
+    
  } catch (error) {
    console.log(error)
  }
-
-
 });
+
+async function getCardNumber() {
+  const cardNumber= document.getElementById("cardnumber");
+  const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/getCardNumber.php",{
+    user_id: localStorage.getItem("id"),
+  })
+  console.log(response);
+  cardNumber.innerText=response.data.card.card_number;
+}
 // with draw fitch
 const withdraw = document.getElementById("withdraw");
 withdraw.addEventListener('click',async ()=>{
   const amount = document.getElementById("withAmount").value;
+  const wallet_id=document.getElementById("wallets").value;
   try {
     const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
       amount,
-      wallet_id: 1,
+      wallet_id,
       type:"withdraw"
     });
 console.log(response)
-
+    walletData();
   } catch (error) {
     console.log(error);
   }
@@ -81,14 +72,16 @@ console.log(response)
 const deposit = document.getElementById("deposit");
 deposit.addEventListener('click',async ()=>{
   const amount = document.getElementById("depAmount").value;
+  const wallet_id=document.getElementById("wallets").value;
+
   try {
     const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
       amount,
-      wallet_id: 1,
+      wallet_id,
       type:"deposit"
     });
 console.log(response)
-
+    walletData();
   } catch (error) {
     console.log(error);
   }
@@ -102,6 +95,7 @@ wallets.addEventListener('change',async ()=>{
 
 async function  walletData () {
   let walletid = document.getElementById("wallets").value;
+  localStorage.setItem("walletInUse",walletid);
   const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWalletById.php`,{
     wallet_id:walletid,
   });
@@ -111,7 +105,7 @@ async function  walletData () {
   // console.log(response.data.walletData);
 }
  document.addEventListener('DOMContentLoaded',async ()=>{
-  const userID = 31;
+  const userID = localStorage.getItem("id");
   const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWallets.php`,{
     user_id:userID
   })
@@ -125,4 +119,5 @@ async function  walletData () {
     wallets.appendChild(option);
   })
   await walletData ();
+  await getCardNumber();
  })
