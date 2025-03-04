@@ -7,6 +7,7 @@ require("../../Models/walletFunc.php");
 
 $data = json_decode(file_get_contents("php://input"),true);
 if(empty($data['amount']) || empty($data['email']) || empty($data["currency"]) || empty($data["walletInUse"])){
+
     echo json_encode(["success"=>false , "message"=>"Fill all the blank"]);
     return;
  }
@@ -24,7 +25,6 @@ if(empty($data['amount']) || empty($data['email']) || empty($data["currency"]) |
         $result = $stmt->get_result();
         if($result->num_rows >0){
          $stmt1 = $mysqli->prepare($sql1);
-         echo json_encode(["wallet_id"=>$data["walletInUse"]]);
          $Wid= (int)$data["walletInUse"];
          $stmt1-> bind_param("i"
                             ,$Wid);
@@ -51,7 +51,7 @@ if(empty($data['amount']) || empty($data['email']) || empty($data["currency"]) |
 
     }
  } catch (Exception $th) {
-    //throw $th;
+    
     echo json_encode(["error"=> $th]);
 
  }

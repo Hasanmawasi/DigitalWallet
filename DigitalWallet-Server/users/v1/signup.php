@@ -6,8 +6,8 @@ include("../../Utils/header.php");
 require("../../connection/connection.php");
 require("../../Models/userClass.php");
 require("../../Models/usersFunc.php");
-
 session_start();
+
 
 $data = json_decode(file_get_contents("php://input"),true);
 

@@ -29,24 +29,38 @@ send.addEventListener('click',async()=>{
     const reciever = document.getElementById("recieverEmail").value;
     const currency = document.getElementById("currency").value;
     const walletInsUse =localStorage.getItem("walletInUse") ;
+    
     const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/peerTopeer.php",{
-        amount,
+        amount :amount,
         email: reciever,
         currency,
-        walletInsUse,
+        walletInUse:walletInsUse,
     })
     console.log(response);
     if(response.data.success){
+        document.getElementById("peerSucc").innerText=response.data.message;
+        setTimeout(() => {
+            document.getElementById("peerSucc").innerText="";
+            document.getElementById("sendAmount").value="";
+            document.getElementById("recieverEmail").value="";
+            document.getElementById("currency").value="";
+        }, 2000);
          const wallet_id=localStorage.getItem("walletInUse");    
-  try {
-    const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
-      amount,
-      wallet_id,
-      type:"withdraw"
-    });
-    console.log(response);
-  } catch (error) {
-    console.log(error);
+        try {
+            const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
+            amount,
+            wallet_id,
+            type:"withdraw"
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+
   }
+    }else{
+        document.getElementById("peerError").innerText=response.data.message;
+        setTimeout(() => {
+            document.getElementById("peerError").innerText="";
+        }, 2000);
     }
 })

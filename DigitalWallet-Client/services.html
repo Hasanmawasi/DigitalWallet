@@ -59,9 +59,15 @@
         <section class="flex flex-wrap g-1 mt-2 toggleSection p2p ">
             <div class="form-card flex-col bg-primary">
                 <h2 class="title  text-white" >Peer to Peer</h2>
+                <p class="error-text" id="peerError"></p>
+                <p class="text-white title" id="peerSucc"></p>
                 <input type="text" class="input-field mt-1" name="" id="recieverEmail" placeholder="Reciever Email">
                 <input type="text" class="input-field mt-1" name="" id="sendAmount" placeholder="Amount">
-                <input type="text" class="input-field mt-1" name="" id="currency" placeholder="currency">
+                <!-- <input type="text" class="input-field mt-1" name="" id="currency" placeholder="currency"> -->
+                <select class="select mt-1" name="currency" id="currency">
+                  <option value="dollar">dollar</option>
+                  <option value="lebanese lira">lebanese lira</option>
+              </select>
                 <button class="btn mt-1" id="send"><p>Send</p></button>
              </div>
              <div class="action-explain-left width-50">
