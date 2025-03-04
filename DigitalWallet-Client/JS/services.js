@@ -66,4 +66,28 @@ send.addEventListener('click',async()=>{
             document.getElementById("peerError").innerText="";
         }, 2000);
     }
+});
+
+const createQR  = document.getElementById("createQR");
+createQR.addEventListener('click',async ()=>{
+  const amount = document.getElementById("QRamount").value;
+
+  if(amount != ""){ 
+    let userid= localStorage.getItem('id');
+  let walletid = localStorage.getItem('walletInUse');
+ 
+  let data = `${base_url}Digital-wallet/DigitalWallet-Server/users/v1/QRgenerate.php?amount=${amount}&wallerid=${walletid}&userid=${userid}`;
+  let qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: data,
+    width: 200,
+    height: 200
+  });
+  }else{
+    document.getElementById("QRError").innerText="Fill the blanck!!";
+        setTimeout(() => {
+            document.getElementById("QRError").innerText="";
+        }, 2000);
+  }
+  
+    
 })

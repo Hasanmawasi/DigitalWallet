@@ -36,7 +36,13 @@ createWallet.addEventListener("click",async()=>{
         "Content-Type": "application/json"
     }
 })
-    
+if(response.data.success){
+  messageTimeOut("createwsuc","wallet created!!");
+}else{
+  messageTimeOut("createwfail","wallet failed!!");
+
+}
+
  } catch (error) {
    console.log(error)
  }
@@ -81,6 +87,9 @@ deposit.addEventListener('click',async ()=>{
       type:"deposit"
     });
 console.log(response)
+  if(response.data.success){
+    messageTimeOut("dsuccess","Deposit success")
+  }
     walletData();
   } catch (error) {
     console.log(error);
@@ -121,3 +130,10 @@ async function  walletData () {
   await walletData ();
   await getCardNumber();
  })
+
+ function messageTimeOut(id,message){
+  document.getElementById(id).innerText=message;
+  setTimeout(() => {
+      document.getElementById(id).innerText="";
+  }, 2000);
+ }

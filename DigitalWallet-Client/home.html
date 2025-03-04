@@ -107,6 +107,7 @@
         </div>
         <div class="flex-col card withdraw-card mt-3">
             <h2 class="title">Deposit</h2>
+            <p class="title text-white" id="dsuccess"></p>
             <h3 class="p-1 sub-title self-start ">Currency: dollar<span id=""></span> </h3>
             <input type="number" class="input-field mb-1" name="with-drow" id="depAmount" placeholder="Enter amount">
             <p class="error-text"> </p>
@@ -121,6 +122,8 @@
      <section class="flex mt-3 mb-3">
         <div class="flex-col form-card create-wallet">
             <h2 class="title text-primary">Create New Wallet</h2>
+            <p class="error-text" id="createwfail"></p>
+            <p class="title text-white" id="createwsuc"></p>
             <input type="text" name="walletname" id="Cwalletname" class="input-field mt-1" placeholder="Set Wallet Name">
             <input type="number" name="balance" id="Cbalance" class="input-field mt-1" placeholder="initial balance">
             <select class="select mt-1" name="currency" id="Ccurrency">
