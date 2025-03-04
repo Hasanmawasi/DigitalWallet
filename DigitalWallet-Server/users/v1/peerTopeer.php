@@ -13,12 +13,13 @@ if(empty($data['amount']) || empty($data['email']) || empty($data["currency"]) |
  }
 
  try {
+   $fee = 2;
     $walletfunc = new walletFunc($mysqli);
     include("../../Utils/emailvalidate.php");
     $sql = "SELECT wallets.* FROM users 
             JOIN wallets ON users.user_id = wallets.user_id
             where users.user_email=? and currency=?";
-            $sql1 = "SELECT balance FROM wallets WHERE wallet_id = ?";
+            $sql1 = "SELECT balance,user_id FROM wallets WHERE wallet_id = ?";
     $stmt = $mysqli->prepare($sql);
     $stmt -> bind_param("ss",$data["email"],$data["currency"]);
     if($stmt->execute()){
@@ -32,14 +33,25 @@ if(empty($data['amount']) || empty($data['email']) || empty($data["currency"]) |
             $result1 = $stmt1->get_result();
             if($result->num_rows > 0){
                 $walletsenderdbalance = $result->fetch_assoc();
-                if($walletsenderdbalance['balance'] >= $data['amount'] ){
+                if(($walletsenderdbalance['balance']+$fee)>= $data['amount'] ){
                     $walletinfo = $result-> fetch_assoc();
                     $RecieverWallet = new wallet($walletinfo['wallet_name'],$walletinfo['user_id'],$walletinfo['balance'],$walletinfo['currency'],$walletinfo['daily_limit']);
                     $RecieverWallet->setWalletId($walletinfo["wallet_id"]);
-                    // echo json_encode(["waller"=>$RecieverWallet->getWalletInfo()]);
+                  //   echo json_encode(["waller"=>$RecieverWallet->getWalletInfo()]);
                     $walletfunc = new walletFunc($mysqli);
                     $walletfunc->Deposit($RecieverWallet,$data['amount']);
+
+                  //   insert data into peer2peer table
+                    $sql2 = "INSERT INTO peer2peer(sender_id,reciever_id,amount, fee,currency) VALUES(?,?,?,?,?)";
+                    $stmt2 = $mysqli->prepare($sql2);
+                    $stmt2->bind_param("iiiis",$walletsenderdbalance["user_id"],
+                                                 $walletinfo['user_id'],
+                                                 $data['amount'],
+                                                 $fee,
+                                                 $walletinfo['currency']);
+                    if($stmt2->execute()){ 
                     echo json_encode(["success"=>true,"message"=> "Amount is transfered"]);
+                    }
                  }else{
                     echo json_encode(["success"=>false,"message"=> "insuffecient Amount in balance"]);
                 }

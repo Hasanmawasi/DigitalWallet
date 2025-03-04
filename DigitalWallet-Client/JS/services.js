@@ -25,6 +25,7 @@ document.getElementById("p2p").addEventListener("click", () => {
 
 const send = document.getElementById("send");
 send.addEventListener('click',async()=>{
+    const fee =2;
     const amount = document.getElementById("sendAmount").value;
     const reciever = document.getElementById("recieverEmail").value;
     const currency = document.getElementById("currency").value;
@@ -47,8 +48,10 @@ send.addEventListener('click',async()=>{
         }, 2000);
          const wallet_id=localStorage.getItem("walletInUse");    
         try {
+           let allAmount = fee +parseInt(amount)
+           console.log(allAmount)
             const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
-            amount,
+            amount: allAmount,
             wallet_id,
             type:"withdraw"
             });
