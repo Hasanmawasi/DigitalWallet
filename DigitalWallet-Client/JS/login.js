@@ -80,3 +80,26 @@ try {
 
 
 })
+
+function parseConcatenatedJSON(jsonResponse) {
+    try {
+        // Split into two JSON objects
+        let jsonParts = jsonResponse.split(/(?<=}){(?="success")/);
+        
+        if (jsonParts.length !== 2) {
+            throw new Error("Invalid JSON format");
+        }
+
+        let walletData = JSON.parse(jsonParts[0]);
+        let successData = JSON.parse(jsonParts[1]);
+
+        return {
+            walletData: walletData,
+            success: successData.success,
+            message: successData.message
+        };
+    } catch (error) {
+        console.error("Error parsing JSON:", error.message);
+        return null;
+    }
+}

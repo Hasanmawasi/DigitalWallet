@@ -26,7 +26,7 @@ class usersFunc{
         
         
         if($stmt->execute()) {
-           echo json_encode(["success"=>true , "message"=>"User added successfully"]);
+           return json_encode(["success"=>true , "message"=>"User added successfully"]);
         }else{
             echo json_encode(["success"=>false , "message"=>$stmt->error]);
         }
@@ -47,7 +47,7 @@ class usersFunc{
                 $user_id
               );
               if($stmt->execute()) {
-                // echo json_encode(["success"=>true , "message"=>"card added successfully"]);
+                return json_encode(["success"=>true , "message"=>"card added successfully"]);
              }else{
                  echo json_encode(["success"=>false , "message"=>$stmt->error]);
              }               

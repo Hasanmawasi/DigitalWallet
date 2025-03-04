@@ -30,7 +30,7 @@ try{
       //   getting the id fron the data base
       $data= $userFunc-> searchUserByEmail($user);
       $userFunc->createCard($data['user_id']);
-      echo json_encode(["user_id"=>$data['user_id']]);
+      echo json_encode(["user_id"=>$data['user_id'],"success"=>true]);
      }else{
         echo json_encode(["success"=>false , "message"=>"Email is already exsit"]);
      }
