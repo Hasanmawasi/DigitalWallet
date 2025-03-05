@@ -31,7 +31,7 @@
         <div class="list" >
           <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="">About US</a></li>
+            <li><a href="aboutus.html">About US</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="">Contact Us</a></li>
             <li><button class="btn">LogOut</button></li>
@@ -40,9 +40,9 @@
       </nav>
       <div class="small-screen-list" id="toggleList">
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">About US</a></li>
-          <li><a href="">Services</a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="aboutus.html">About US</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="">Contact Us</a></li>
           <li><button class="btn">LogOut</button></li>
         </ul>
@@ -73,7 +73,7 @@
              <div class="action-explain-left width-50">
                 <h2 class="title text-primary"> Quic transfer </h2>
                 <p class="mt-1 sub-title text-primary">
-                    Enter an email for reciever account and press send to send from your balance to the selected account
+                    Enter an email for reciever account and press send to send from your balance to the selected account with fee 2$
                 </p>
             </div>
         </section> 
@@ -88,19 +88,23 @@
                 <h2 class="title  text-white" >Schedul Payment</h2>
                 <input type="text" class="input-field mt-1" name="" placeholder="Reciever Email">
                 <input type="text" class="input-field mt-1" name="" placeholder="Amount">
-                <input type="text" class="input-field mt-1" name="" placeholder="currency">
-                <input type="date" class="input-field mt-1" name="" placeholder="Date">
+                <input type="text" class="input-field mt-1"  placeholder="currency">
+                <input type="date" class="input-field mt-1"  placeholder="Date">
                 
                 <button class="btn mt-1"><p>Create Schedul</p></button>
              </div>
         </section> 
         <section class="flex flex-wrap mt-2 toggleSection QR hidden">
-            <div class="form-card flex-col bg-primary">
+            <div class="form-card flex-col bg-primary g-2">
                 <h2 class="title  text-white" >Create QR</h2>
-                <input type="text" class="input-field mt-1" name="" placeholder="Amount">
-                <input type="text" class="input-field mt-1" name="" placeholder="currency">                
-                <button class="btn mt-1"><p>Create</p></button>
+                <p class="error-text" id="QRError"></p>
+                <input type="text" class="input-field mt-1" id="QRamount"  placeholder="Amount" required>
+                
+                <button id="createQR" class="btn mt-1"><p>Create</p></button>
              </div>
+            <div class="p-1" id="qrcode">
+              
+            </div>
              <div class="action-explain-right width-50">
                 <h2 class="title text-primary"> Quic transfer </h2>
                 <p class="mt-1 sub-title text-primary">
@@ -120,6 +124,8 @@
         <i class="fab fa-linkedin-in"></i>
     </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <script src="JS/services.js"></script>
   </body>
 </html>

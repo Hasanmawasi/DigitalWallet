@@ -25,6 +25,7 @@ document.getElementById("p2p").addEventListener("click", () => {
 
 const send = document.getElementById("send");
 send.addEventListener('click',async()=>{
+    const fee =2;
     const amount = document.getElementById("sendAmount").value;
     const reciever = document.getElementById("recieverEmail").value;
     const currency = document.getElementById("currency").value;
@@ -47,8 +48,10 @@ send.addEventListener('click',async()=>{
         }, 2000);
          const wallet_id=localStorage.getItem("walletInUse");    
         try {
+           let allAmount = fee +parseInt(amount)
+           console.log(allAmount)
             const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
-            amount,
+            amount: allAmount,
             wallet_id,
             type:"withdraw"
             });
@@ -63,4 +66,40 @@ send.addEventListener('click',async()=>{
             document.getElementById("peerError").innerText="";
         }, 2000);
     }
+});
+
+const createQR  = document.getElementById("createQR");
+createQR.addEventListener('click',async ()=>{
+  const amount = document.getElementById("QRamount").value;
+
+  if(amount != ""){ 
+    let userid= localStorage.getItem('id');
+  let walletid = localStorage.getItem('walletInUse');
+ 
+  let data = `${base_url}Digital-wallet/DigitalWallet-Server/users/v1/QRgenerate.php?amount=${amount}&wallerid=${walletid}&userid=${userid}`;
+  let qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: data,
+    width: 200,
+    height: 200
+  });
+  }else{
+    document.getElementById("QRError").innerText="Fill the blanck!!";
+        setTimeout(() => {
+            document.getElementById("QRError").innerText="";
+        }, 2000);
+  }
+  
+    
 })
+
+// toggle between login and sign up
+const navicon = document.getElementById("navicon");
+
+navicon.addEventListener("click", () => {
+  const toggleList = document.getElementById("toggleList");
+  if (toggleList.style.display === "flex") {
+    toggleList.style.display = "none";
+  } else {
+    toggleList.style.display = "flex";
+  }
+});
