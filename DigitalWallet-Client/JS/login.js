@@ -15,7 +15,7 @@ tosignup.addEventListener('click',(e)=>{
     singup.classList.remove("hidden");
 });
 
-const base_url = "http://localhost/";
+const base_url = "http://13.36.167.91/";
 
 const signupButtom = document.getElementById("signup-btn");
 
@@ -25,7 +25,7 @@ signupButtom.addEventListener('click',async ()=>{
     const email = document.getElementById("Semail").value;
     
     try {
-        const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/signup.php",{
+        const response = await axios.post(base_url+"users/v1/signup.php",{
             username: username,
             password :password,
             email: email,
@@ -54,13 +54,12 @@ loginButtom.addEventListener("click",async ()=>{
     const email = document.getElementById("lemail").value;
     const password = document.getElementById("lpassword").value;
 try {
-    const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/login.php",
+    const response = await axios.post(base_url+"users/v1/login.php",
         {
             email,
             password
         },
         {
-            withCredentials: true ,
             headers: {
                 "Content-Type": "application/json"
             }

@@ -1,4 +1,4 @@
-const base_url = "http://localhost/"
+const base_url = "http://13.36.167.91/";
 
 
 
@@ -31,7 +31,7 @@ send.addEventListener('click',async()=>{
     const currency = document.getElementById("currency").value;
     const walletInsUse =localStorage.getItem("walletInUse") ;
     
-    const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/peerTopeer.php",{
+    const response = await axios.post(base_url+"users/v1/peerTopeer.php",{
         amount :amount,
         email: reciever,
         currency,
@@ -50,7 +50,7 @@ send.addEventListener('click',async()=>{
         try {
            let allAmount = fee +parseInt(amount)
            console.log(allAmount)
-            const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
+            const response =  await axios.post(base_url+"users/v1/withdraw_deposit.php",{
             amount: allAmount,
             wallet_id,
             type:"withdraw"
@@ -76,7 +76,7 @@ createQR.addEventListener('click',async ()=>{
     let userid= localStorage.getItem('id');
   let walletid = localStorage.getItem('walletInUse');
  
-  let data = `${base_url}Digital-wallet/DigitalWallet-Server/users/v1/QRgenerate.php?amount=${amount}&wallerid=${walletid}&userid=${userid}`;
+  let data = `${base_url}users/v1/QRgenerate.php?amount=${amount}&wallerid=${walletid}&userid=${userid}`;
   let qrcode = new QRCode(document.getElementById("qrcode"), {
     text: data,
     width: 200,
@@ -107,13 +107,13 @@ navicon.addEventListener("click", () => {
 getProfileImg(localStorage.getItem("id"))
 async function getProfileImg(id){
     const img = document.getElementById("profileimg");
-    const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getProfilePic.php`,{
+    const response= await axios.post(base_url+`users/v1/getProfilePic.php`,{
       user_id:id
     })
     console.log(response.data)
     // response.data.user;
     if(response.data.user.profile_url != ""){        
-      img.setAttribute("src" ,base_url+"Digital-wallet/DigitalWallet-Server/users/v1/"+ response.data.user.profile_url);
+      img.setAttribute("src" ,base_url+"users/v1/"+ response.data.user.profile_url);
     }
   
   }

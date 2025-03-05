@@ -1,5 +1,5 @@
 
-const base_url = "http://localhost/";
+const base_url = "http://13.36.167.91/";
 
 document.getElementById("update").addEventListener("click", async (event)=> {
     let formData = new FormData();
@@ -12,13 +12,13 @@ document.getElementById("update").addEventListener("click", async (event)=> {
     formData.append("userPhoto", document.getElementById("userPhoto").files[0]); 
     formData.append("userID", localStorage.getItem("id")); 
     console.log(document.getElementById("userPhoto").files[0])
-   const response=  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/update_profile.php",
+   const response=  await axios.post(base_url+"users/v1/update_profile.php",
          formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         }
     })
-    console.log(response.data)
+    console.log(response)
     if(response.data.success){
         alert(response.data)
         document.getElementById("psuccess").innerText=response.data.message;
@@ -39,15 +39,16 @@ async function getProfileImg(id){
     const img = document.getElementById("profileimg");
     const fimg = document.getElementById("fprofileimg");
 
-    const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getProfilePic.php`,{
+    const response= await axios.post(base_url+`users/v1/getProfilePic.php`,{
       user_id:id
     })
-    console.log(response.data)
+    console.log(response)
     // response.data.user;
     if(response.data.user.profile_url != ""){
-      fimg.setAttribute("src" ,base_url+"Digital-wallet/DigitalWallet-Server/users/v1/"+ response.data.user.profile_url);
+      fimg.setAttribute("src" ,base_url+"users/v1/"+ response.data.user.profile_url);
         
-      img.setAttribute("src" ,base_url+"Digital-wallet/DigitalWallet-Server/users/v1/"+ response.data.user.profile_url);
+      img.setAttribute("src" ,base_url+"users/v1/"+ response.data.user.profile_url);
     }
-  
+    document.getElementById("userName").value=response.data.user?.user_name;
+    document.getElementById("userEmail").value=response.data.user?.user_email;
   }

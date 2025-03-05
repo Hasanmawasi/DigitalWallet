@@ -6,7 +6,9 @@ $data=json_decode(file_get_contents("php://input"),true);
 
 if(isset($data['user_id'])){
 
-    $sql = "SELECT profile_url  FROM users WHERE user_id = ?";
+    $sql = "SELECT profile_url, user_name,user_email 
+            FROM users  
+            WHERE users.user_id = ?;";
     $stmt =$mysqli->prepare($sql);
     $stmt->bind_param('i',$data["user_id"]);
     if($stmt->execute()){

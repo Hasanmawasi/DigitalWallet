@@ -16,7 +16,7 @@ document.getElementById("date").innerText = date.getFullYear();
 
 
 
-const base_url = "http://localhost/"
+const base_url = "http://13.36.167.91/";
 // Create wallet function
 
 const createWallet = document.getElementById("createwallet");
@@ -26,7 +26,7 @@ createWallet.addEventListener("click",async()=>{
   const balance = document.getElementById("Cbalance").value;
   const currency = document.getElementById("Ccurrency").value;
     const id = localStorage.getItem("id");
-  const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/create_wallet.php",{
+  const response = await axios.post(base_url+"users/v1/create_wallet.php",{
     walletname: walletname,
     balance: balance,
     currency: currency,
@@ -36,6 +36,7 @@ createWallet.addEventListener("click",async()=>{
         "Content-Type": "application/json"
     }
 })
+console.log(response)
 if(response.data.success){
   messageTimeOut("createwsuc","wallet created!!");
 }else{
@@ -50,7 +51,7 @@ if(response.data.success){
 
 async function getCardNumber() {
   const cardNumber= document.getElementById("cardnumber");
-  const response = await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/getCardNumber.php",{
+  const response = await axios.post(base_url+"users/v1/getCardNumber.php",{
     user_id: localStorage.getItem("id"),
   })
   console.log(response);
@@ -64,7 +65,7 @@ withdraw.addEventListener('click',async ()=>{
   if(amount !=""){ 
   const wallet_id=document.getElementById("wallets").value;
   try {
-    const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
+    const response =  await axios.post(base_url+"users/v1/withdraw_deposit.php",{
       amount,
       wallet_id,
       type:"withdraw"
@@ -88,7 +89,7 @@ deposit.addEventListener('click',async ()=>{
   const wallet_id=document.getElementById("wallets").value;
 
   try {
-    const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
+    const response =  await axios.post(base_url+"users/v1/withdraw_deposit.php",{
       amount,
       wallet_id,
       type:"deposit"
@@ -116,7 +117,7 @@ wallets.addEventListener('change',async ()=>{
 async function  walletData () {
   let walletid = document.getElementById("wallets").value;
   localStorage.setItem("walletInUse",walletid);
-  const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWalletById.php`,{
+  const response= await axios.post(base_url+`users/v1/getWalletById.php`,{
     wallet_id:walletid,
   });
   let wallet = response.data.walletData; 
@@ -127,7 +128,7 @@ async function  walletData () {
  document.addEventListener('DOMContentLoaded',async ()=>{
   const userID = localStorage.getItem("id");
   
-  const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWallets.php`,{
+  const response= await axios.post(base_url+`users/v1/getWallets.php`,{
     user_id:userID
   })
   let fetchwallet =await response.data.wallets;
@@ -147,14 +148,14 @@ async function  walletData () {
 
 async function getProfileImg(id){
   const img = document.getElementById("profileimg");
-  const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getProfilePic.php`,{
+  const response= await axios.post(base_url+`users/v1/getProfilePic.php`,{
     user_id:id
   })
   console.log(response.data)
   // response.data.user;
   if(response.data.user.profile_url != ""){
 
-    img.setAttribute("src" ,base_url+"Digital-wallet/DigitalWallet-Server/users/v1/"+ response.data.user.profile_url);
+    img.setAttribute("src" ,base_url+"users/v1/"+ response.data.user.profile_url);
   }
 
 }

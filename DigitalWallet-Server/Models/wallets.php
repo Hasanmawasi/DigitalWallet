@@ -16,7 +16,7 @@ class wallet{
         $this->setBalance($balance) ;
         $this->currency = $currency;
         $this->dailylimit = $dailylimit;
-        $this->createdAt = date("d-m-Y");
+        $this->createdAt = date("Y-m-d");
     }
     
     public function getWalletId() {
