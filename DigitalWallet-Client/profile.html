@@ -20,7 +20,8 @@
     <div class="navbar">
       <nav class="">
         <div>
-          <a href="profile.html"><img class="profileimg" src="image/profiles/logo.png" alt="profile" /></a>
+          <a href="profile.html"><img class="profileimg" id="profileimg" src="image/profiles/user-profile.png" alt="profile" /></a>
+
         </div>
         <h1 class="heading">E Wallet</h1>
         
@@ -57,10 +58,11 @@
      <section class="flex mt-3 mb-3">
         <div class="flex-col  form-card shadow ">
             <div class="flex-col">
-               <img class="profileimg" src="image/profiles/logo.png" alt="">
+               <img class="profileimg" id="fprofileimg" src="image/profiles/user-profile.png" alt="">
                <input type="file" id="userPhoto" class="input-field mt-1 bg-white"> 
             </div>
-            <!-- <h2 class="title text-primary"></h2> -->
+            <p class="title text-white" id="psuccess"></p>
+            <p class="error-text" id="pfail"></p>
             <input type="text" class="input-field mt-1" id="userName" placeholder="Name ">
             <input type="text" class="input-field mt-1" id="userEmail" placeholder="Email">
             <input type="text" class="input-field mt-1" id="UserPhone" placeholder="Phone">

@@ -126,6 +126,7 @@ async function  walletData () {
 }
  document.addEventListener('DOMContentLoaded',async ()=>{
   const userID = localStorage.getItem("id");
+  
   const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getWallets.php`,{
     user_id:userID
   })
@@ -140,7 +141,26 @@ async function  walletData () {
   })
   await walletData ();
   await getCardNumber();
+  await getProfileImg(userID)
  })
+
+
+async function getProfileImg(id){
+  const img = document.getElementById("profileimg");
+  const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getProfilePic.php`,{
+    user_id:id
+  })
+  console.log(response.data)
+  // response.data.user;
+  if(response.data.user.profile_url != ""){
+
+    img.setAttribute("src" ,base_url+"Digital-wallet/DigitalWallet-Server/users/v1/"+ response.data.user.profile_url);
+  }
+
+}
+
+
+
 
  function messageTimeOut(id,message){
   document.getElementById(id).innerText=message;

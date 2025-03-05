@@ -103,3 +103,17 @@ navicon.addEventListener("click", () => {
     toggleList.style.display = "flex";
   }
 });
+
+getProfileImg(localStorage.getItem("id"))
+async function getProfileImg(id){
+    const img = document.getElementById("profileimg");
+    const response= await axios.post(base_url+`Digital-wallet/DigitalWallet-Server/users/v1/getProfilePic.php`,{
+      user_id:id
+    })
+    console.log(response.data)
+    // response.data.user;
+    if(response.data.user.profile_url != ""){        
+      img.setAttribute("src" ,base_url+"Digital-wallet/DigitalWallet-Server/users/v1/"+ response.data.user.profile_url);
+    }
+  
+  }
