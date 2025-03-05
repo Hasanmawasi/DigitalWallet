@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         }
     }
-        
+        $true=1;
     $stmt = $mysqli->prepare("UPDATE users 
-                             SET user_name = ?, user_email = ?, profile_url = ? 
+                             SET user_name = ?, user_email = ?, profile_url = ?, is_verify = ?
                              WHERE user_id = ?;");
-    $stmt->bind_param("sssi", $userName, $userEmail, $photoPath, $userID);
+$stmt->bind_param("sssii", $userName, $userEmail, $photoPath,$true ,$userID);
     $stmt1 = $mysqli->prepare("INSERT INTO users_verification(user_id, address,id_card_number,phone_number) VALUES (?, ?, ?,?)");
     $stmt1-> bind_param("isii", $userID, $userAddress, $userCardID, $userPhone);
     if ($stmt->execute() && $stmt1->execute()) {

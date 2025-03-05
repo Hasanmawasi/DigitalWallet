@@ -1,7 +1,8 @@
 
 const base_url = "http://localhost/";
 
-document.getElementById("update").addEventListener("click", function () {
+document.getElementById("update").addEventListener("click", function (event) {
+    event.preventDefault();
     let formData = new FormData();
     formData.append("userName", document.getElementById("userName").value);
     formData.append("userEmail", document.getElementById("userEmail").value);
@@ -18,10 +19,11 @@ document.getElementById("update").addEventListener("click", function () {
     })
     .then(response => {
         console.log(response.data);
-        alert(response.data.message);
+        alert(response.data)
     })
     .catch(error => {
         console.error(error);
-        alert("Error updating user.");
+        alert(error)
+       
     });
 });
