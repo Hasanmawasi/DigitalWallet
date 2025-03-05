@@ -60,6 +60,8 @@ async function getCardNumber() {
 const withdraw = document.getElementById("withdraw");
 withdraw.addEventListener('click',async ()=>{
   const amount = document.getElementById("withAmount").value;
+
+  if(amount !=""){ 
   const wallet_id=document.getElementById("wallets").value;
   try {
     const response =  await axios.post(base_url+"Digital-wallet/DigitalWallet-Server/users/v1/withdraw_deposit.php",{
@@ -67,17 +69,22 @@ withdraw.addEventListener('click',async ()=>{
       wallet_id,
       type:"withdraw"
     });
-console.log(response)
+    messageTimeOut("wsuccess","Withdraw Success");      
+
     walletData();
   } catch (error) {
     console.log(error);
   }
+  }else{
+     messageTimeOut("wfail","Fill the blank");      
+  }
 });
-
+  
 // deposit fetch
 const deposit = document.getElementById("deposit");
 deposit.addEventListener('click',async ()=>{
   const amount = document.getElementById("depAmount").value;
+  if(amount !=""){
   const wallet_id=document.getElementById("wallets").value;
 
   try {
@@ -87,13 +94,17 @@ deposit.addEventListener('click',async ()=>{
       type:"deposit"
     });
 console.log(response)
-  if(response.data.success){
+  
     messageTimeOut("dsuccess","Deposit success")
-  }
+
     walletData();
   } catch (error) {
     console.log(error);
   }
+}else{
+  messageTimeOut("dfail","Fill the blank!!")
+
+}
 });
 
 const wallets = document.getElementById("wallets");

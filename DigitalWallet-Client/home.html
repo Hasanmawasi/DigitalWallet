@@ -32,8 +32,8 @@
         <div class="list" >
           <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="">About US</a></li>
-            <li><a href="services.html">Services</a></li>
+          <li><a href="aboutus.html">About US</a></li>
+          <li><a href="services.html">Services</a></li>
             <li><a href="">Contact Us</a></li>
             <li><button class="btn">LogOut</button></li>
           </ul>
@@ -41,9 +41,9 @@
       </nav>
       <div class="small-screen-list" id="toggleList">
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">About US</a></li>
-          <li><a href="">Services</a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="aboutus.html">About US</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="">Contact Us</a></li>
           <li><button class="btn">LogOut</button></li>
         </ul>
@@ -67,11 +67,11 @@
         <!-- <div class="flex justify-evenly p-1 flex-wrap mt-1"> -->
         <div class="flex nowrap g-1"> 
             <h3>Ballance : </h3>
-            <P class="amount" id="cardAmount">100</P>
+            <P class="amount" id="cardAmount">0</P>
         </div>
         <div class="flex nowrap g-1"> 
         <h3>Card: </h3>
-        <p id="cardnumber" class="card-number text-primary">123-123-123</p>
+        <p id="cardnumber" class="card-number text-primary">0</p>
         </div>
         <div class="flex nowrap g-1"> 
           <h3>currency: </h3>
@@ -85,6 +85,8 @@
         
         <div class="flex-col card withdraw-card mt-3">
             <h2 class="title">Withdraw</h2>
+            <p class="title text-white" id="wsuccess"></p>
+            <p class="error-text" id="wfail"></p>
             <h3 class="p-1 sub-title self-start ">Currency: dollar<span id=""></span> </h3>
             <input type="number" class="input-field mb-1" name="with-drow" id="withAmount" placeholder="enter amount">
             <button class="btn " id="withdraw"><p>Confirm</p></button>
@@ -108,6 +110,8 @@
         <div class="flex-col card withdraw-card mt-3">
             <h2 class="title">Deposit</h2>
             <p class="title text-white" id="dsuccess"></p>
+            <p class="error-text" id="dfail"></p>
+
             <h3 class="p-1 sub-title self-start ">Currency: dollar<span id=""></span> </h3>
             <input type="number" class="input-field mb-1" name="with-drow" id="depAmount" placeholder="Enter amount">
             <p class="error-text"> </p>
