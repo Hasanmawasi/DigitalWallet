@@ -30,13 +30,16 @@ send.addEventListener('click',async()=>{
     const reciever = document.getElementById("recieverEmail").value;
     const currency = document.getElementById("currency").value;
     const walletInsUse =localStorage.getItem("walletInUse") ;
-    
+    console.log(amount,reciever, currency, walletInsUse)
     const response = await axios.post(base_url+"users/v1/peerTopeer.php",{
         amount :amount,
         email: reciever,
         currency,
         walletInUse:walletInsUse,
-    })
+    },{
+    headers: {
+      "Content-Type": "application/json"
+  }})
     console.log(response);
     if(response.data.success){
         document.getElementById("peerSucc").innerText=response.data.message;

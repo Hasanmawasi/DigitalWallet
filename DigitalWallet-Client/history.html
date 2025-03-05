@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="CSS/components.css">
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+    <div class="navbar">
+      <nav class="">
+        <div>
+          <a href="profile.html"><img class="profileimg" id="profileimg" src="image/profiles/user-profile.png" alt="profile" /></a>
+        </div>
+        <h1 class="heading">E Wallet</h1>
+        
+        <div id="navicon" class="icon-container">
+          <i class="fa-solid fa-bars nav-icon"></i>
+        </div>
+        <div class="list" >
+          <ul>
+            <li><a href="home.html">Home</a></li>
+          <li><a href="aboutus.html">About US</a></li>
+          <li><a href="services.html">Services</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><button class="btn">LogOut</button></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="small-screen-list" id="toggleList">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="aboutus.html">About US</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><button class="btn">LogOut</button></li>
+        </ul>
+      </div>
+    </div>
+</header>
+    <main>  
+        <div id="chart-withdraw">
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script>
+            var options = {
+          series: [{
+            name: "Desktops",
+            data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Product Trends by Month',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart-withdraw"), options);
+        chart.render();
+        </script>
+   </main>
+<footer>
+    <div class="footer-line ">
+    </div>
+    <div class="flex g-1 mb-1 flex-wrap">
+        <p>Copy right © <span id="date"></span> <b>E Wallet</b></p>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+    </div>
+</footer>
+    <script src="JS/home.js"></script>
+  </body>
+</html>
