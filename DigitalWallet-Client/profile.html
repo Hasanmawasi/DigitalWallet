@@ -58,15 +58,15 @@
         <div class="flex-col  form-card shadow ">
             <div class="flex-col">
                <img class="profileimg" src="image/profiles/logo.png" alt="">
-               <input type="file" class="input-field mt-1 bg-white"> 
+               <input type="file" id="userPhoto" class="input-field mt-1 bg-white"> 
             </div>
             <!-- <h2 class="title text-primary"></h2> -->
-            <input type="text" class="input-field mt-1" placeholder="Name ">
-            <input type="text" class="input-field mt-1" placeholder="Email">
-            <input type="text" class="input-field mt-1" placeholder="Phone">
-            <input type="text" class="input-field mt-1" placeholder="Card-ID">
-            <input type="text" name="" id="" class="input-field mt-1" placeholder="Address">
-            <button class="btn mt-1"><p>update</p></button>
+            <input type="text" class="input-field mt-1" id="userName" placeholder="Name ">
+            <input type="text" class="input-field mt-1" id="userEmail" placeholder="Email">
+            <input type="text" class="input-field mt-1" id="UserPhone" placeholder="Phone">
+            <input type="text" class="input-field mt-1" id="UserCardID" placeholder="Card-ID">
+            <input type="text" class="input-field mt-1" id="UserAddress" placeholder="Address">
+            <button class="btn mt-1" id="update"><p>update</p></button>
         </div>
      </section>
    
@@ -81,6 +81,8 @@
         <i class="fab fa-linkedin-in"></i>
     </div>
 </footer>
-    <script src="JS/home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="JS/profile.js"></script>
   </body>
 </html>
