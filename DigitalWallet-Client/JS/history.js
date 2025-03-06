@@ -129,6 +129,7 @@ async function waitdataDeposit() {
         height: 350,
         type: 'bar',
       },
+      colors: ["#8229bd"], 
       plotOptions: {
         bar: {
           borderRadius: 10,
