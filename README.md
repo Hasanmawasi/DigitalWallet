@@ -18,6 +18,17 @@ This diagram illustrates the core **components** of the system, including backen
 ![System Components](https://github.com/Hasanmawasi/DigitalWallet/blob/9bc392a0f41a02a309126854faee6f934d4f2353/DigitalWallet-Client/image/coponents/components.png)
 
 ---
+# Digital Wallet Setup
+
+To access the service, you can use the following IP address:
+
+**IP Address**: `13.36.167.91`
+
+If you need to connect to the service via a browser, click the link below:
+
+[Visit Service](http://13.36.167.91)
+
+---
 
 ## 🚀 Features
 ✅ Secure user authentication  
