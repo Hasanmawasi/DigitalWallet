@@ -12,6 +12,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
   </head>
@@ -21,7 +23,6 @@
       <nav class="">
         <div>
           <a href="profile.html"><img class="profileimg" id="profileimg" src="image/profiles/user-profile.png" alt="profile" /></a>
-
         </div>
         <h1 class="heading">E Wallet</h1>
         
@@ -49,42 +50,29 @@
       </div>
     </div>
 </header>
-    <main class="flex-col">  
-    
-    <!-- end of deposit and withdraw section -->
-     <!-- Create wallet -->
-     <h2 class="title mt-1 profile-title  shadow text-primary">Profile</h2>
+    <main>  
+        <h1 class="title flex text-primary p-1 ">withdraws History</h1>
 
-     <section class="flex mt-3 mb-3">
-        <div class="flex-col  form-card shadow ">
-            <div class="flex-col">
-               <img class="profileimg" id="fprofileimg" src="image/profiles/user-profile.png" alt="">
-               <input type="file" id="userPhoto" class="input-field mt-1 bg-white"> 
-            </div>
-            <p class="title text-white" id="psuccess"></p>
-            <p class="error-text" id="pfail"></p>
-            <input type="text" class="input-field mt-1" id="userName" placeholder="Name ">
-            <input type="text" class="input-field mt-1" id="userEmail" placeholder="Email" readonly>
-            <input type="text" class="input-field mt-1" id="UserPhone" placeholder="Phone">
-            <input type="text" class="input-field mt-1" id="UserCardID" placeholder="Card-ID">
-            <input type="text" class="input-field mt-1" id="UserAddress" placeholder="Address">
-            <button class="btn mt-1" id="update"><p>update</p></button>
+        <div id="chart-withdraw">
+
         </div>
-     </section>
-   
-</main>
+        <h1 class="title flex text-primary p-1">Deposits History</h1>
+        <div id="chart-deposit">
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+       
+   </main>
 <footer>
-    <div class="footer-line">
+    <div class="footer-line ">
     </div>
-    <div class="flex g-1 mb-1">
+    <div class="flex g-1 mb-1 flex-wrap">
         <p>Copy right © <span id="date"></span> <b>E Wallet</b></p>
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-twitter"></i>
         <i class="fab fa-linkedin-in"></i>
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script src="JS/profile.js"></script>
+    <script src="JS/history.js"></script>
   </body>
 </html>
