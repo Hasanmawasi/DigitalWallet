@@ -28,7 +28,9 @@ If you need to connect to the service via a browser, click the link below:
 
 [Visit Service:IP Address](http://13.36.167.91)
 
-**GitHub Pages**:[https://hasanmawasi.github.io/DigitalWallet/DigitalWallet-Client/index.html]
+**GitHub Pages**: `[https://hasanmawasi.github.io/DigitalWallet/DigitalWallet-Client/index.html]`
+**Home  Page**: `[https://hasanmawasi.github.io/DigitalWallet/DigitalWallet-Client/home.html]`
+
 ---
 
 ## 🚀 Features
