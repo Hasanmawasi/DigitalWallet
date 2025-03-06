@@ -26,8 +26,9 @@ To access the service, you can use the following IP address:
 
 If you need to connect to the service via a browser, click the link below:
 
-[Visit Service](http://13.36.167.91)
+[Visit Service:IP Address](http://13.36.167.91)
 
+**GitHub Pages**:[Visit Service:IP Address]
 ---
 
 ## 🚀 Features
