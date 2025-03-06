@@ -15,7 +15,7 @@ Below is the **Entity-Relationship Diagram (ERD)** representing the database str
 ## 🏗️ System Components
 This diagram illustrates the core **components** of the system, including backend, frontend interfaces, and database.
 
-![System Components](https://raw.githubusercontent.com/Hasanmawasi/DigitalWallet/main/DigitalWallet-Client/image/components/components.png)
+![System Components](https://github.com/Hasanmawasi/DigitalWallet/blob/9bc392a0f41a02a309126854faee6f934d4f2353/DigitalWallet-Client/image/coponents/components.png)
 
 ---
 
