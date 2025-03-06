@@ -8,8 +8,7 @@ The **Digital Wallet Project** is a secure and efficient platform for managing f
 ## 📊 Database ERD
 Below is the **Entity-Relationship Diagram (ERD)** representing the database structure of the Digital Wallet system.
 
-![Database ERD](https://raw.githubusercontent.com/Hasanmawasi/DigitalWallet/main/https://github.com/Hasanmawasi/DigitalWallet/DigitalWallet-Client/image/components/ER-DigitalWallet.png
-)
+![Database ERD](https://github.com/Hasanmawasi/DigitalWallet/blob/024d3cb6642e2066b943dbc51c39cd491d9ff129/DigitalWallet-Client/image/coponents/ER-DigitalWallet.png)
 
 ---
 
